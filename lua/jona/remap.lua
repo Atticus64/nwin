@@ -1,6 +1,5 @@
 vim.g.mapleader = " "
 
-
 -- Functional wrapper for mapping custom keybindings
 function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
@@ -28,12 +27,11 @@ map("n", "<Leader>w", ":w<CR>")
 map("n", "<Leader>e", ":q!<CR>")
 
 -- open terminal
-map("n", "<Leader>ot", ":term pwsh<CR>")
+map("n", "<Leader>ot", ":term pwsh -nologo <CR>")
 
 -- open vterm
-map('n', '<leader>th', ':botright new <Bar> :terminal pwsh<CR>')
-map('n', '<leader>ts', ':botright vnew <Bar> :terminal pwsh<CR>')
-
+map('n', '<leader>th', ':botright new <Bar> :terminal pwsh -nologo <CR>')
+map('n', '<leader>ts', ':botright vnew <Bar> :terminal pwsh -nologo <CR>')
 
 -- Hop shortcuts
 map("n", "<Leader>s", ":HopAnywhere<CR>")
