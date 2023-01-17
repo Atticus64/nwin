@@ -9,8 +9,16 @@ function map(mode, lhs, rhs, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
+map('n', '<A-h>', ':NavigatorLeft<CR>')
+map('n', '<A-l>', ':NavigatorRight<CR>')
+map('n', '<A-k>', ':NavigatorUp<CR>')
+map('n', '<A-j>', ':NavigatorDown<CR>')
+map('n', '<A-p>', ':NavigatorPrevious<CR>')
+
 -- search file in folder
 map("n", "<leader>pv", vim.cmd.Ex)
+
+
 -- exit insert mode
 map("i", ",,", "<esc>")
 

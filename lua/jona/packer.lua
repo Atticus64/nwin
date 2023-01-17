@@ -1,13 +1,40 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
+
   use 'wbthomason/packer.nvim'
 
+  use { 'sigmasd/deno-nvim' }
 
+  use {
+    'numToStr/Navigator.nvim',
+    config = function()
+        require('Navigator').setup()
+    end
+  }
+
+  use {
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+        'nvim-tree/nvim-web-devicons', -- optional, for file icons
+      },
+      tag = 'nightly' -- optional, updated every week. (see issue #1193) 
+  }
+
+  use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+        require('lspsaga').setup({})
+    end,
+  })
+
+  use { 'Atticus64/infinity_train.nvim' }
   -- Themes
   use 'rose-pine/neovim'
 
@@ -68,19 +95,5 @@ return require('packer').startup(function(use)
   -- Comment
   use "terrortylor/nvim-comment"
 
-
-  use { 'alexghergh/nvim-tmux-navigation', config = function()
-      require'nvim-tmux-navigation'.setup {
-          disable_when_zoomed = true, -- defaults to false
-          keybindings = {
-              left = "<C-h>",
-              down = "<C-j>",
-              up = "<C-k>",
-              right = "<C-l>",
-              last_active = "<C-\\>",
-              next = "<C-Space>",
-          }
-      }
-  end}
 
 end)

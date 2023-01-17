@@ -9,6 +9,8 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.cursorline = true
 
+vim.opt.foldlevel   = 99
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
